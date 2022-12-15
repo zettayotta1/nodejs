@@ -14,12 +14,10 @@ jobs:
         id: semver
         uses: "snsinahub-org/semver@v2.0.0"
         with:
-          type: 'MAJOR'
+          type: 'minor'
           prefix: 'v'
           body: 'Release body text... '
           create-release: 'yes'
-          files: |
-            LICENSE
       - name: 'print version'        
         run: |
          echo ${{ steps.semver.outputs.version }}
