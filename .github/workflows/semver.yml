@@ -1,0 +1,27 @@
+name: semver
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  semver:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: 'Get semver based on pr label'
+        id: semver
+        uses: "snsinahub-org/semver@v2.0.0"
+        with:
+          type: 'MAJOR'
+          prefix: 'v'
+          body: 'Release body text... '
+          create-release: 'yes'
+          files: |
+            Dockerfile
+            action.yml
+            code-coverage-report.zip
+      - name: 'print version'        
+        run: |
+         echo ${{ steps.semver.outputs.version }}
