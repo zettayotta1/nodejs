@@ -19,9 +19,7 @@ jobs:
           body: 'Release body text... '
           create-release: 'yes'
           files: |
-            Dockerfile
-            action.yml
-            code-coverage-report.zip
+            LICENSE
       - name: 'print version'        
         run: |
          echo ${{ steps.semver.outputs.version }}
