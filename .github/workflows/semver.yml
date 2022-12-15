@@ -18,6 +18,7 @@ jobs:
           prefix: 'v'
           body: 'Release body text... '
           create-release: 'yes'
+          files: ''
       - name: 'print version'        
         run: |
          echo ${{ steps.semver.outputs.version }}
